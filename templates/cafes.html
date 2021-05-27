@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Restaurants{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/coffee_css/styles.css" xmlns="http://www.w3.org/1999/html">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1>All Cafes</h1>
+
+            <table class="table" cellpadding="30">
+                <tr>
+                    <td>
+                        <h3>Cafe Name</h3>
+                    </td>
+                    <td>
+                        <h3>Cafe Location</h3>
+                    </td>
+                    <td>
+                        <h3>Has Wifi</h3>
+                    </td>
+                    <td>
+                        <h3>Has Power Sockets</h3>
+                    </td>
+                    <td>
+                        <h3>Has Toilets</h3>
+                    </td>
+                    <td>
+                        <h3>You Can Take Calls There</h3>
+                    </td>
+                    <td>
+                        <h3>Coffee Price</h3>
+                    </td>
+                </tr>
+                {% for cafe in cafes %}
+                    <tr>
+                        <td>
+                            <h3>{{cafe.name}}</h3>
+                        </td>
+                        <td>
+                            <h3>{{cafe.location}}</h3>
+                        </td>
+                        <td>
+                            <h3><a href="{{cafe.map_url}}"></a></h3>
+                        </td>
+                        <td>
+                            <h3><a href="{{cafe.img_url}}"></a></h3>
+                        </td>
+                        <td>
+                            <h3>{{cafe.has_wifi}}</h3>
+                        </td>
+                        <td>
+                            <h3>{{cafe.has_sockets}}</h3>
+                        </td>
+                        <td>
+                            <h3>{{cafe.has_toilets}}</h3>
+                        </td>
+                        <td>
+                            <h3>{{cafe.can_take_calls}}</h3>
+                        </td>
+                        <td>
+                            <h3>{{cafe.coffee_price}}</h3>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <p><a href="/">Go To Coffee And Wifi Homepage</a></p>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
